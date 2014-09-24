@@ -22,14 +22,14 @@ menuentry "BareMetal w/ Pure64 /boot" {
 }
 ```
 
-This means load a OS image on a ext2 partition(/dev/sda7) with path(filename) /boot/pure64.sys, load it to memory 0000:0x8000 and run it.
+This means load a OS image on a ext2 partition(/dev/sda7) with path(filename) /boot/bm.sys, load it to memory 0000:0x8000 and run it.
 
 Command:
 ```
-osimg FILE STARTUP_OFFISET
+osimg FILE STARTUP_OFFSET
 ```
 
-The FILE will be loaded into STARTUP_OFFISET and run from there.
+The FILE will be loaded into STARTUP_OFFSET and run from there.
 Remember don't let STARTUP_OFFISET to mass up with the reserved memory locations(see http://wiki.osdev.org/Memory_Map_(x86) ), or it will not work correctly.
 
 Background story:
