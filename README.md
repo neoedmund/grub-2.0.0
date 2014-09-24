@@ -12,20 +12,22 @@ branch "osimg"
 ===================
 add command "osimg"
 
-eg. in grub.cfg
-
+example grub.cfg
+```
 menuentry "BareMetal w/ Pure64 /boot" {
 	insmod part_msdos
 	insmod ext2
 	set root='hd0,msdos7'	
 	osimg	/boot/bm.sys 0x8000
 }
+```
 
 This means load a OS image on a ext2 partition(/dev/sda7) with path(filename) /boot/pure64.sys, load it to memory 0000:0x8000 and run it.
 
 Command:
+```
 osimg FILE STARTUP_OFFISET
-
+```
 
 The FILE will be loaded into STARTUP_OFFISET and run from there.
 Remember don't let STARTUP_OFFISET to mass up with the reserved memory locations(see http://wiki.osdev.org/Memory_Map_(x86) ), or it will not work correctly.
@@ -36,6 +38,7 @@ This function removed the limitation of "512 bytes" and "from 0x7C00".
 When you write a hobbist OS, maybe even without filesystem routines. It should be a good help.
 
 Usage:
+```
 git clone <this repo>
 mkdir build
 cd build
@@ -45,6 +48,6 @@ make install
 ./grub-install /dev/sdX (X should be replaced)
 edit /boot/grub/grub.cfg is needed.
 reboot, you can see grub version is "Grub-2.00-osimg".
-
+```
 
 
