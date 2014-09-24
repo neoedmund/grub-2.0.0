@@ -38,10 +38,12 @@
  * As we don't have access to yyscanner, we cannot do much except to
  * print the fatal error.
  */
+/*
 #define YY_FATAL_ERROR(msg)                     \
   do {                                          \
     grub_printf (_("fatal error: %s\n"), _(msg));     \
   } while (0)
+*/
 
 #define COPY(str, hint)                         \
   do {                                          \
