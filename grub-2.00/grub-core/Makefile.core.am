@@ -37482,7 +37482,7 @@ endif
 if COND_i386_pc
 platform_PROGRAMS += chain.module
 MODULE_FILES += chain.module$(EXEEXT)
-chain_module_SOURCES  = loader/i386/pc/chainloader.c loader/i386/pc/osimg.c  ## platform sources
+chain_module_SOURCES  = loader/i386/pc/chainloader.c  ## platform sources
 nodist_chain_module_SOURCES  =  ## platform nodist sources
 chain_module_LDADD  = 
 chain_module_CFLAGS  = $(AM_CFLAGS) $(CFLAGS_MODULE) 
@@ -37586,6 +37586,160 @@ CLEANFILES += chain.marker
 
 chain.marker: $(chain_module_SOURCES) $(nodist_chain_module_SOURCES)
 	$(TARGET_CPP) -DGRUB_LST_GENERATOR $(CPPFLAGS_MARKER) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(chain_module_CPPFLAGS) $(CPPFLAGS) $^ > $@.new || (rm -f $@; exit 1)
+	grep 'MARKER' $@.new > $@; rm -f $@.new
+endif
+
+if COND_i386_pc
+platform_PROGRAMS += osimg.module
+MODULE_FILES += osimg.module$(EXEEXT)
+osimg_module_SOURCES  = loader/i386/pc/osimg.c  ## platform sources
+nodist_osimg_module_SOURCES  =  ## platform nodist sources
+osimg_module_LDADD  = 
+osimg_module_CFLAGS  = $(AM_CFLAGS) $(CFLAGS_MODULE) 
+osimg_module_LDFLAGS  = $(AM_LDFLAGS) $(LDFLAGS_MODULE) 
+osimg_module_CPPFLAGS  = $(AM_CPPFLAGS) $(CPPFLAGS_MODULE) 
+osimg_module_CCASFLAGS  = $(AM_CCASFLAGS) $(CCASFLAGS_MODULE) 
+EXTRA_DIST += 
+BUILT_SOURCES += $(nodist_osimg_module_SOURCES)
+CLEANFILES += $(nodist_osimg_module_SOURCES)
+MOD_FILES += osimg.mod
+MARKER_FILES += osimg.marker
+CLEANFILES += osimg.marker
+
+osimg.marker: $(osimg_module_SOURCES) $(nodist_osimg_module_SOURCES)
+	$(TARGET_CPP) -DGRUB_LST_GENERATOR $(CPPFLAGS_MARKER) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(osimg_module_CPPFLAGS) $(CPPFLAGS) $^ > $@.new || (rm -f $@; exit 1)
+	grep 'MARKER' $@.new > $@; rm -f $@.new
+endif
+
+if COND_i386_efi
+platform_PROGRAMS += osimg.module
+MODULE_FILES += osimg.module$(EXEEXT)
+osimg_module_SOURCES  = loader/i386/pc/osimg.c  ## platform sources
+nodist_osimg_module_SOURCES  =  ## platform nodist sources
+osimg_module_LDADD  = 
+osimg_module_CFLAGS  = $(AM_CFLAGS) $(CFLAGS_MODULE) 
+osimg_module_LDFLAGS  = $(AM_LDFLAGS) $(LDFLAGS_MODULE) 
+osimg_module_CPPFLAGS  = $(AM_CPPFLAGS) $(CPPFLAGS_MODULE) 
+osimg_module_CCASFLAGS  = $(AM_CCASFLAGS) $(CCASFLAGS_MODULE) 
+EXTRA_DIST += 
+BUILT_SOURCES += $(nodist_osimg_module_SOURCES)
+CLEANFILES += $(nodist_osimg_module_SOURCES)
+MOD_FILES += osimg.mod
+MARKER_FILES += osimg.marker
+CLEANFILES += osimg.marker
+
+osimg.marker: $(osimg_module_SOURCES) $(nodist_osimg_module_SOURCES)
+	$(TARGET_CPP) -DGRUB_LST_GENERATOR $(CPPFLAGS_MARKER) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(osimg_module_CPPFLAGS) $(CPPFLAGS) $^ > $@.new || (rm -f $@; exit 1)
+	grep 'MARKER' $@.new > $@; rm -f $@.new
+endif
+
+if COND_i386_qemu
+platform_PROGRAMS += osimg.module
+MODULE_FILES += osimg.module$(EXEEXT)
+osimg_module_SOURCES  = loader/i386/pc/osimg.c  ## platform sources
+nodist_osimg_module_SOURCES  =  ## platform nodist sources
+osimg_module_LDADD  = 
+osimg_module_CFLAGS  = $(AM_CFLAGS) $(CFLAGS_MODULE) 
+osimg_module_LDFLAGS  = $(AM_LDFLAGS) $(LDFLAGS_MODULE) 
+osimg_module_CPPFLAGS  = $(AM_CPPFLAGS) $(CPPFLAGS_MODULE) 
+osimg_module_CCASFLAGS  = $(AM_CCASFLAGS) $(CCASFLAGS_MODULE) 
+EXTRA_DIST += 
+BUILT_SOURCES += $(nodist_osimg_module_SOURCES)
+CLEANFILES += $(nodist_osimg_module_SOURCES)
+MOD_FILES += osimg.mod
+MARKER_FILES += osimg.marker
+CLEANFILES += osimg.marker
+
+osimg.marker: $(osimg_module_SOURCES) $(nodist_osimg_module_SOURCES)
+	$(TARGET_CPP) -DGRUB_LST_GENERATOR $(CPPFLAGS_MARKER) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(osimg_module_CPPFLAGS) $(CPPFLAGS) $^ > $@.new || (rm -f $@; exit 1)
+	grep 'MARKER' $@.new > $@; rm -f $@.new
+endif
+
+if COND_i386_coreboot
+platform_PROGRAMS += osimg.module
+MODULE_FILES += osimg.module$(EXEEXT)
+osimg_module_SOURCES  = loader/i386/pc/osimg.c  ## platform sources
+nodist_osimg_module_SOURCES  =  ## platform nodist sources
+osimg_module_LDADD  = 
+osimg_module_CFLAGS  = $(AM_CFLAGS) $(CFLAGS_MODULE) 
+osimg_module_LDFLAGS  = $(AM_LDFLAGS) $(LDFLAGS_MODULE) 
+osimg_module_CPPFLAGS  = $(AM_CPPFLAGS) $(CPPFLAGS_MODULE) 
+osimg_module_CCASFLAGS  = $(AM_CCASFLAGS) $(CCASFLAGS_MODULE) 
+EXTRA_DIST += 
+BUILT_SOURCES += $(nodist_osimg_module_SOURCES)
+CLEANFILES += $(nodist_osimg_module_SOURCES)
+MOD_FILES += osimg.mod
+MARKER_FILES += osimg.marker
+CLEANFILES += osimg.marker
+
+osimg.marker: $(osimg_module_SOURCES) $(nodist_osimg_module_SOURCES)
+	$(TARGET_CPP) -DGRUB_LST_GENERATOR $(CPPFLAGS_MARKER) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(osimg_module_CPPFLAGS) $(CPPFLAGS) $^ > $@.new || (rm -f $@; exit 1)
+	grep 'MARKER' $@.new > $@; rm -f $@.new
+endif
+
+if COND_i386_multiboot
+platform_PROGRAMS += osimg.module
+MODULE_FILES += osimg.module$(EXEEXT)
+osimg_module_SOURCES  = loader/i386/pc/osimg.c  ## platform sources
+nodist_osimg_module_SOURCES  =  ## platform nodist sources
+osimg_module_LDADD  = 
+osimg_module_CFLAGS  = $(AM_CFLAGS) $(CFLAGS_MODULE) 
+osimg_module_LDFLAGS  = $(AM_LDFLAGS) $(LDFLAGS_MODULE) 
+osimg_module_CPPFLAGS  = $(AM_CPPFLAGS) $(CPPFLAGS_MODULE) 
+osimg_module_CCASFLAGS  = $(AM_CCASFLAGS) $(CCASFLAGS_MODULE) 
+EXTRA_DIST += 
+BUILT_SOURCES += $(nodist_osimg_module_SOURCES)
+CLEANFILES += $(nodist_osimg_module_SOURCES)
+MOD_FILES += osimg.mod
+MARKER_FILES += osimg.marker
+CLEANFILES += osimg.marker
+
+osimg.marker: $(osimg_module_SOURCES) $(nodist_osimg_module_SOURCES)
+	$(TARGET_CPP) -DGRUB_LST_GENERATOR $(CPPFLAGS_MARKER) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(osimg_module_CPPFLAGS) $(CPPFLAGS) $^ > $@.new || (rm -f $@; exit 1)
+	grep 'MARKER' $@.new > $@; rm -f $@.new
+endif
+
+if COND_i386_ieee1275
+platform_PROGRAMS += osimg.module
+MODULE_FILES += osimg.module$(EXEEXT)
+osimg_module_SOURCES  = loader/i386/pc/osimg.c  ## platform sources
+nodist_osimg_module_SOURCES  =  ## platform nodist sources
+osimg_module_LDADD  = 
+osimg_module_CFLAGS  = $(AM_CFLAGS) $(CFLAGS_MODULE) 
+osimg_module_LDFLAGS  = $(AM_LDFLAGS) $(LDFLAGS_MODULE) 
+osimg_module_CPPFLAGS  = $(AM_CPPFLAGS) $(CPPFLAGS_MODULE) 
+osimg_module_CCASFLAGS  = $(AM_CCASFLAGS) $(CCASFLAGS_MODULE) 
+EXTRA_DIST += 
+BUILT_SOURCES += $(nodist_osimg_module_SOURCES)
+CLEANFILES += $(nodist_osimg_module_SOURCES)
+MOD_FILES += osimg.mod
+MARKER_FILES += osimg.marker
+CLEANFILES += osimg.marker
+
+osimg.marker: $(osimg_module_SOURCES) $(nodist_osimg_module_SOURCES)
+	$(TARGET_CPP) -DGRUB_LST_GENERATOR $(CPPFLAGS_MARKER) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(osimg_module_CPPFLAGS) $(CPPFLAGS) $^ > $@.new || (rm -f $@; exit 1)
+	grep 'MARKER' $@.new > $@; rm -f $@.new
+endif
+
+if COND_x86_64_efi
+platform_PROGRAMS += osimg.module
+MODULE_FILES += osimg.module$(EXEEXT)
+osimg_module_SOURCES  = loader/i386/pc/osimg.c  ## platform sources
+nodist_osimg_module_SOURCES  =  ## platform nodist sources
+osimg_module_LDADD  = 
+osimg_module_CFLAGS  = $(AM_CFLAGS) $(CFLAGS_MODULE) 
+osimg_module_LDFLAGS  = $(AM_LDFLAGS) $(LDFLAGS_MODULE) 
+osimg_module_CPPFLAGS  = $(AM_CPPFLAGS) $(CPPFLAGS_MODULE) 
+osimg_module_CCASFLAGS  = $(AM_CCASFLAGS) $(CCASFLAGS_MODULE) 
+EXTRA_DIST += 
+BUILT_SOURCES += $(nodist_osimg_module_SOURCES)
+CLEANFILES += $(nodist_osimg_module_SOURCES)
+MOD_FILES += osimg.mod
+MARKER_FILES += osimg.marker
+CLEANFILES += osimg.marker
+
+osimg.marker: $(osimg_module_SOURCES) $(nodist_osimg_module_SOURCES)
+	$(TARGET_CPP) -DGRUB_LST_GENERATOR $(CPPFLAGS_MARKER) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(osimg_module_CPPFLAGS) $(CPPFLAGS) $^ > $@.new || (rm -f $@; exit 1)
 	grep 'MARKER' $@.new > $@; rm -f $@.new
 endif
 
