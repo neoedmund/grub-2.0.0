@@ -39,13 +39,15 @@ When you write a hobbist OS, maybe even without filesystem routines. It should b
 
 Usage:
 ```
+sudo apt-get install autogen    # not checked in configure but make trouble later in make
 git clone <this repo>
-mkdir build
-cd build
-../grub-2.00/configure
+git checkout origin osimg    
+./autogen.sh
+./configure
+echo ""> grub-2.00/grub-2.00/docs/grub-dev.texi  # which will make error, just clear it
 make -j4
-make install
-./grub-install /dev/sdX (X should be replaced)
+sudo make install
+sudo ./grub-install /dev/sdX (X should be replaced)
 edit /boot/grub/grub.cfg is needed.
 reboot, you can see grub version is "Grub-2.00-osimg".
 ```
