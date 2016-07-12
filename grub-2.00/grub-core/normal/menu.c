@@ -411,6 +411,12 @@ grub_menu_register_viewer (struct grub_menu_viewer *viewer)
 }
 
 static int
+menuentry_match (const char *id, const char *spec)
+{
+	return (int) grub_strstr(id, spec);
+}
+
+static int
 menuentry_eq (const char *id, const char *spec)
 {
   const char *ptr1, *ptr2;
@@ -460,7 +466,9 @@ get_entry_number (grub_menu_t menu, const char *name)
       for (i = 0; e; i++)
 	{
 	  if (menuentry_eq (e->title, val)
-	      || menuentry_eq (e->id, val))
+	      || menuentry_eq (e->id, val)
+	      || menuentry_match (e->title, val)
+	      )
 	    {
 	      entry = i;
 	      break;

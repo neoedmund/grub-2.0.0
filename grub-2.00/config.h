@@ -22,11 +22,11 @@
 /* Name of package.  */
 #define PACKAGE "grub"
 /* Version number of package.  */
-#define VERSION "2.00"
+#define VERSION "osimg-2"
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "GRUB 2.00"
+#define PACKAGE_STRING "GRUB osimg-2"
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "2.00"
+#define PACKAGE_VERSION "osimg-2"
 /* Define to the full name of this package. */
 #define PACKAGE_NAME "GRUB"
 /* Define to the address where bug reports for this package should be sent. */
