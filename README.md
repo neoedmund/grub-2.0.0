@@ -8,9 +8,9 @@ Grub2 Homepage  http://www.gnu.org/software/grub/
 
 
 ===================
-branch "osimg"
-===================
-add command "osimg"
+## changes:
+
+### add command "osimg"
 
 example grub.cfg
 ```
@@ -51,5 +51,16 @@ sudo ./grub-install /dev/sdX (X should be replaced)
 edit /boot/grub/grub.cfg is needed.
 reboot, you can see grub version is "Grub-2.00-osimg".
 ```
+
+### add default matched by title
+
+`ver osimg-2`
+
+eg. in grub.cfg set default="Windows"
+
+than grub will select first title contains "Windows"
+
+This is easier than set a integer value which may changes.
+
 
 
